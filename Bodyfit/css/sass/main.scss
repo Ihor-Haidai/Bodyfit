@@ -1,0 +1,931 @@
+$fit-color: #A0CE4E;
+$first-color: #1F4B6E;
+$text-color: #0B2238;
+$selles-color: #5F5F5F;
+$main-background: #8A8A8A;
+$classes-color: #114270;
+$dark-fone: rgba(1, 48, 83, 0.4);
+%button-shared {
+    width: 14vw;
+    padding: 0.5vw 1.5vw;
+    text-transform: uppercase;
+    color: inherit;
+    font-weight: 700;
+    font-size: 1.2vw;
+    background-color: transparent;
+    border-style: solid;
+    border-color: inherit;
+    border-width: 0.5px;
+}
+%button-sale {
+    width: 12vw;
+    padding: 0.6vw 1.5vw;
+    text-transform: uppercase;
+    color: inherit;
+    font-weight: 700;
+    font-size: 1.2vw;
+    background-color: transparent;
+    border-style: solid;
+    border-color: inherit;
+    border-width: 0.5px;
+}
+%icons-style {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+%points-icon {
+    width: 80px;
+    height: 80px;
+    margin: 1vw 2vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+%points-photo {
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+%class-style {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+%next-prev-style {
+    position: absolute;
+    top: 41%;
+    cursor: pointer;
+    width: 10%;
+    height: auto;
+    font-weight: bold;
+    font-size: 3vw;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    text-align: center;
+}
+* {
+    box-sizing: border-box;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+body {
+    background-color: #F5F5F5;
+}
+span {
+    color: $fit-color;
+}
+.button-header, .button-optimized, .button-men-class, .button-women-class {
+    @extend %button-shared;
+}
+.button-sale {
+    @extend %button-sale;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    background-color: $main-background;
+}
+.logo {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 65px;
+    margin: 5px auto 5px 5%;
+    .logo-figure {
+        height: 55px;
+        width: 25px;
+        background-image: url("../../img/logo.png");
+    }
+    .logo-text {
+        height: 55px;
+        width: 144px;
+        background-image: url("../../img/bodyfit.png");
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+}
+.top-menu {
+    ul {
+        list-style-type: none;
+        margin: auto 5px;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        height: 65px;
+        li {
+            float: left;
+            margin: auto 10px;
+            :hover {
+                text-decoration: none;
+                color: $fit-color;
+            }
+            a {
+                color: white;
+                text-transform: uppercase;
+                font-size: 1.2vw;
+            }
+        }
+        .search {
+            @extend %icons-style;
+            background-image: url("../../img/search.png");
+        }
+        .basket {
+            @extend %icons-style;
+            background-image: url("../../img/basket.png");
+        }
+    }
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin: 32px auto 1px auto;
+    div {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px 0;
+    }
+}
+}
+aside {
+    position: relative;
+}
+.slideshow-container {
+        margin: auto;
+        .slides {
+            display: none;
+            }
+}
+.dots {
+    text-align: center;
+    position: relative;
+    background-color: $main-background;
+}
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: $fit-color;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 4s;
+}
+@keyframes fade {
+    from { opacity: .6; }
+    to { opacity: 1; }
+}
+.dark-fone {
+    position: absolute;
+    background: linear-gradient(62deg, $dark-fone 60%, transparent 0%), no-repeat right top;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.welcome-contein {
+    position: absolute;
+    width: 39%;
+    top: 20%;
+    left: 12%;
+    font-size: 1vw;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    z-index: 2;
+    h2 {
+        text-transform: uppercase;
+        font-size: 3.5vw;
+    }
+    p {
+        margin: 5px 50px 4vw 0;
+    }
+    button {
+        border-color: $fit-color;
+        z-index: 3;
+    }
+    button:hover {
+        color: $fit-color;
+        background-color: rgba(1, 48, 83, 0.4);
+        border-color: white;
+    }
+}
+.optimized {
+    width: 100%;
+    background-image: url("../../img/shutterstok.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 81%;
+    background-position-x: 83%;
+    background-color: rgba(50, 108, 150, 0.8);
+    .optimized-body {
+        background-color: rgba(0, 7, 12, 0.8);
+        margin: auto 0;
+        display: flex;
+        flex-direction: row;
+        .optimized-workout {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 16vw;
+            margin: 2vw 0 2vw 0;
+            padding: 0 2vw 0 14vw;
+            background-color: rgba(0, 68, 117, 0.7);
+            div {
+                height: 16vw;
+                width: 14vw;
+                margin-left: -2vw;
+                img {
+                    height: 16vw;
+                    width: 14vw;
+                    overflow: hidden;
+                    clip-path: polygon(0px 100%, 9vw 100%, 14vw 0%, 5vw 0%);
+                }
+            }
+        }
+        .optimized-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            height: 16vw;
+            width: 100%;
+            margin: 2vw 0 2vw 0;
+            padding: 0 14vw 0 5vw;
+            background-color: rgba(0, 68, 117, 0.7);
+            color: white;
+            text-transform: capitalize;
+            h4 {
+                margin: 3vw 0 0 0;
+                font-size: 2.2vw;
+            }
+            p {
+                margin: 0.5vw 0 2vw 0;
+                font-size: 1.2vw;
+            }
+            button:hover {
+                color: $fit-color;
+                background-color: rgba(0, 3, 5, 0.4);
+                border-color: white;
+            }
+        }
+    }
+}
+.three-points {
+    position: relative;
+    margin: 70px auto;
+    .points {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        margin: 2vw 5vw;
+        .points-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $text-color;
+            .points-icon {
+                @extend %points-icon;
+            }
+            .fitness {
+                background-image: url("../../img/fitness.png");
+            }
+            .diet {
+                background-image: url("../../img/diet.png");
+            }
+            .habits {
+                background-image: url("../../img/habbits.png");
+            }
+            h5 {
+                margin: 1vw;
+                font-size: 1.8vw;
+            }
+            p {
+                margin: 1vw 5vw;
+                font-size: 1.2vw;
+            }
+            .points-photo {
+                width: 24vw;
+                height: 14vw;
+                margin: 2vw 0 1vw 0;
+                @extend %points-photo;
+            }
+            .fitness-photo {
+                background-image: url("../../img/fitness_woman.png");
+                clip-path: polygon(0vw 11%, 2vw 100%, 24vw 89%, 22vw 0%);
+            }
+            .diet-photo {
+                background-image: url("../../img/lean-diet.png");
+                clip-path: polygon(0vw 89%, 2vw 0%, 24vw 11%, 22vw 100%);
+            }
+            .habits-photo {
+                background-image: url("../../img/health_fitness_pirson.png");
+                clip-path: polygon(0vw 11%, 2vw 100%, 24vw 89%, 22vw 0%);
+            }
+            .point{
+                input {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+    .three-points-text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        h6 {
+            margin: 0 auto;
+            font-size: 16px;
+        }
+        p {
+            margin: 0 auto;
+            font-size: 12px;
+            font-weight: 700;
+            color: $main-background;
+        }
+    }
+}
+.for-girls {
+    margin: 6vw 0 0 0;
+    height: 25vw;
+    width: 100%;
+    background-color: $first-color;
+    .girls-block {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+    .girl {
+        width: 100%;
+        margin: 0;
+        text-transform: uppercase;
+        :hover {
+            background-color: $dark-fone;
+            cursor: pointer;
+        }
+        .for-girls-photo {
+            width: 100%;
+            height: 25vw;
+            @extend %points-photo;
+            color: white;
+        }
+            .for-girls-hover {
+                width: 100%;
+                height: 100%;
+                text-transform: uppercase;
+                color: white;
+                position: relative;
+            h5 {
+                position: absolute;
+                top: 19vw;
+                left: 2vw;
+                font-size: 1.2vw;
+            }
+            p {
+                position: absolute;
+                top: 21vw;
+                left: 2vw;
+                font-size: 0.8vw;
+            }
+        }
+        .boxing {
+            background-image: url("../../img/young_woman_fitness.png");
+            background-position-x: 28%;
+            border-bottom: solid 4px $fit-color;
+        }
+        .yoga {
+            background-image: url("../../img/joga_pose_gym.png");
+            background-position-x: 94%;
+            border-bottom: solid 4px blue;
+        }
+        .fitness {
+            background-image: url("../../img/woman_fitness.png");
+            background-position-x: 54%;
+            border-bottom: solid 4px rgb(240, 89, 2);
+        }
+    }
+}
+}
+.classes {
+    margin: 5vw 0;
+    position: relative;
+    width: 100%;
+    height: 40vw;
+    background-color: rgba(1, 48, 83, 0.4);
+    .background-women {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../img/women_classes.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: 10%;
+        background-position-y: 21%;
+        clip-path: polygon(0vw 0%, 0vw 100%, 0vw 100%, 99vw 0%);
+    }
+    .background-men {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../img/man_classes2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: 10%;
+        background-position-y: 21%;
+        clip-path: polygon(0vw 100%, 99vw 0%, 99vw 0%, 99vw 100%);
+    }
+    .women-class {
+        @extend %class-style;
+        bottom: 0;
+        right: 0;
+        clip-path: polygon(0vw 0%, 0vw 100%, 0vw 100%, 99vw 0%);
+        background-color: rgba($first-color, 0.7);
+        color: white;
+        .women-text-block {
+            position: absolute;
+            left: 13vw;
+            top: 5vw;
+            width: 20%;
+        }
+    }
+    .men-class {
+        @extend %class-style;
+        bottom: 0;
+        right: 0;
+        clip-path: polygon(0vw 100%, 99vw 0%, 99vw 0%, 99vw 100%);
+        background-color: rgba(white, 0.7);
+        color: $first-color;
+        .men-text-block {
+            position: absolute;
+            right: 13vw;
+            bottom: 5vw;
+            width: 20%;
+        }
+    }
+    h5 {
+        font-size: 1.8vw;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 0 1vw 0;
+    }
+    p {
+        font-size: 1.2vw;
+        margin: 0 0 2vw 0
+    }
+    div {
+        .button-women-class {
+            :hover {
+                background-color: rgba(white, 0.7);
+                color: $first-color;
+            }
+        }
+        .button-men-class {
+            :hover {
+                background-color: rgba($first-color, 0.7);
+                color: white;
+            }
+
+        }
+    }
+    .clesses-sircle {
+        width: 8vw;
+        height: 8vw;
+        position: absolute;
+        top: 16vw;
+        left: 45vw;
+        background-color: white;
+        text-align: center;
+        border-radius: 50%;
+        border: solid 0.6vw $classes-color;
+        z-index: 2;
+        p {
+            font-size: 1.5vw;
+            margin: 1vw 0 0 0;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: $first-color;
+            span {
+                font-weight: 300;
+                color: $first-color;
+            }
+        }
+    }
+}
+.button-women-class:hover {
+    background-color: rgba(white, 0.7);
+    color: $first-color;
+}
+.button-men-class:hover {
+    background-color: rgba($first-color, 0.7);
+    color: white;
+}
+.instruments-slideshow {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 25vw;
+    .slideshow-block {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        .slids {
+            position: relative;
+            width: 25%;
+            height: 25vw;
+            display: none;
+            flex-direction: column;
+            border: 0.5px solid rgb(175, 175, 175);
+            z-index: 5;
+            p {
+                font-size: 1.1vw;
+                margin: 0 1.4vw;
+            }
+            .slids-shadow {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 19.7vw;
+                height: 17vw;
+                color: white;
+                cursor: pointer;
+                :hover {
+                    cursor: pointer;
+                    color: white;
+                    border-color: white;
+                }
+                button {
+                    position: absolute;
+                    top: 7vw;
+                    left: 5.5vw;
+                    @extend %button-shared;
+                    color: transparent;
+                    width: 9vw;
+                    height: 3vw;
+                    font-size: 0.9vw;
+                    border: 0.5px solid transparent;
+                    z-index: 6;
+                }
+            }
+            .button-sale {
+                    position: absolute;
+                    bottom: 0.8vw;
+                    left: 4.6vw;
+                    width: 10vw;
+                    @extend %button-shared;
+                    color: white;
+                    border: none;
+                    background-color: $first-color;
+                }
+            .slids-image {
+                margin: 1vw auto;
+                width: 18vw;
+                height: 15vw;
+                z-index: 0;
+            }
+            .dumbbell {
+                background-image: url("../../img/dumbbells.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+            .bike {
+                background-image: url("../../img/simulator.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+            .tree {
+                background-image: url("../../img/barbell.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+            .dial {
+                background-image: url("../../img/gym_barbell.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+            .rowing {
+                background-image: url("../../img/rowing_machine.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+            .suspension {
+                background-image: url("../../img/suspension.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+            .health {
+                background-image: url("../../img/kettlebells.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+            .shoes {
+                background-image: url("../../img/shoes_reebok.png");
+                @extend %points-photo;
+                background-size: contain;
+            }
+    }
+    }
+    .prev-instr {
+        @extend %next-prev-style;
+        left: 1vw;
+    }
+    .next-instr {
+        @extend %next-prev-style;
+        right: 1vw;
+    }
+}
+.slids-shadow:hover {
+    background-color: rgba(0, 3, 5, 0.4);
+}
+.button-sale:hover {
+    background-color: $selles-color;
+}
+.statistic {
+    position: relative;
+    margin: 12vw auto;
+    width: 80%;
+    text-align: center;
+    .statistic-block {
+        height: 200px;
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        .circle-block {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: $fit-color;
+            border: 5px solid white;
+            margin: auto;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 18px;
+            .circle-block-image {
+                width: 60px;
+                height: 60px;
+                margin: 24px auto 5px;
+                img {
+                    margin: 15px 0 0 0;
+                }
+            }
+        }
+    }
+}
+.latest {
+    position: relative;
+    width: 100%;
+    height: 26vw;
+    background-image: url("../../img/fitness_background.png");
+    @extend %points-photo;
+    background-size: auto;
+    background-position-y: 59%;
+    margin: 1vw 0 0 0;
+    .latest-background-fone {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(1, 48, 83, 0.8);
+        z-index: 2;
+    }
+    h4 {
+        position: absolute;
+        top: 24%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        font-size: 2.2vw;
+        z-index: 8;
+    }
+    p {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        width: 100%;
+        z-index: 9;
+        color: white;
+        text-align: center;
+        font-size: 1.2vw;
+        padding: 0 30%;
+        margin: 3vw 0;
+    }
+    button {
+        position: absolute;
+        top: 73%;
+        left: 44%;
+        width: 12vw;
+        height: 4vw;
+        color: white;
+        z-index: 10;
+        @extend %button-shared;
+        background-color: $fit-color;
+        border: none;
+    }
+}
+footer {
+    position: relative;
+    margin: 0;
+    height: auto;
+    background-color: $fit-color;
+    .social-icons {
+        position: relative;
+        height: 14vw;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 5px auto;
+        border-bottom: 2px solid white;
+        .sicial-icons-block {
+            position: absolute;
+            left: 0;
+            top: 45%;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+            .icons {
+                display: inline-block;
+                width: 2.5vw;
+                height: 2.5vw;
+                border-radius: 50%;
+                margin: 0 1vw;
+                overflow: hidden;
+                background-size: cover;
+                a {
+                    width: 25px;
+                    height: 25px;
+                    display: inline-block;
+                }
+            }
+            .facebook {
+                background-image: url("../../img/facebook.png");
+            }
+            .twitter {
+                background-image: url("../../img/twitter.png");
+            }
+            .pinterest {
+                background-image: url("../../img/pinterest.png");
+            }
+            .google {
+                background-image: url("../../img/google.png");
+            }
+            .dribbble {
+                background-image: url("../../img/dribbble.png");
+            }
+            .linkedin {
+                background-image: url("../../img/linkedin.png");
+            }
+            .instagram {
+                background-image: url("../../img/instagram.png");
+            }
+            .vine {
+                background-image: url("../../img/vine.png");
+            }
+        }
+    }
+}
+.contacts {
+    position: relative;
+    background-color: $fit-color;
+    margin: 0 0 1vw 0;
+}
+.contacts-text {
+    .contacts-logo {
+        display: flex;
+        flex-direction: row;
+        width: 250px;
+        height: 85px;
+        margin: 7vw 0 0 8vw;
+        .logo-figure2 {
+            width: 30px;
+            height: 60px;
+            background-image: url("../../img/layer2.png");
+            @extend %points-photo;
+        }
+        .logo-text2 {
+            width: 190px;
+            height: 41px;
+            background-image: url(../../img/bodyfit2.png);
+            margin: 20px 0 0 5px;
+            @extend %points-photo;
+        }
+    } 
+    p {
+        margin: 1vw 0 0 8vw;
+        color: white;
+        font-size: 18px;
+    }
+}
+.contacts-adress {
+    margin: 7vw 1vw 0 0;
+    color: white;
+    font-size: 18px;
+    h5 {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $first-color;
+        width: 370px;
+        i {
+            margin: 0 5px 0 0;
+            color: white;
+        }
+    }
+}
+.newsletter {
+    margin: 7vw 0 0 0;
+    color: white;
+    font-size: 18px;
+    h4 {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $first-color;
+        width: 370px;
+    }
+    p {
+        width: 370px;
+        margin: 1.5vw 0 0 0;
+    }
+    .newsletter-form {
+        margin: 1.5vw 0 0 0;
+        form {
+            input {
+                width: 375px;
+                height: 50px;
+                margin: 5px 0 0 0;
+                background-color: $fit-color;
+                color: rgba(225, 225, 225, 0.8);
+                padding: 0 0 0 5px;
+                border: 1px solid white;
+                }
+                :last-child {
+                    width: 150px;
+                    background-color: $first-color;
+                    padding: 0;
+                    font-weight: 700;
+                    color: white;
+                    border: none;
+                    :hover {
+                        color: $selles-color;
+                    }
+            }
+        }
+    }
+}
+.bottom-menu {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    background-color: $first-color;
+    color: white;
+    .bottom-menu-right {
+        position: absolute;
+        top: 40%;
+        left: 9%;
+        font-size: 1.2vw;
+    }
+    nav {
+        position: absolute;
+        display: flex;
+        flex-direction: row-reverse;
+        top: 40%;
+        right: 9%;
+        width: 50%;
+        > div {
+            float: left;
+            margin: 0 1vw;
+            text-transform: uppercase;
+            font-size: 1vw;
+        }
+    }
+}
+@media (max-width: 992px) {
+    .contacts-adress, .newsletter {
+        margin: 15px 1vw 0 9%;
+    }
+    .bottom-menu-right {
+        left: 11%;
+    }
+}
